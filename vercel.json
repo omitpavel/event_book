@@ -1,0 +1,32 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "public/index.php",
+        "use": "@vercel/php"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/public/index.php"
+      }
+    ],
+    "env": {
+      "APP_ENV": "production",
+      "APP_KEY": "base64:y4GcuOslzIKyaSr3bHWBcyJqynhMwLLJxxSG5sviUf0=",
+      "APP_DEBUG": "false",
+      "APP_URL": "https://your-vercel-domain.vercel.app",
+
+      "MAIL_MAILER": "smtp",
+      "MAIL_HOST": "mail.wedvisa.com",
+      "MAIL_PORT": "25",
+      "MAIL_USERNAME": "info@wedvisa.com",
+      "MAIL_PASSWORD": "info@#2024",
+      "MAIL_ENCRYPTION": "",
+      "MAIL_FROM_ADDRESS": "info@wedvisa.com",
+      "MAIL_FROM_NAME": "Event Reminder"
+    },
+    "ignoreCommand": "git diff --quiet HEAD^ HEAD .",
+    "outputDirectory": "public"
+  }
