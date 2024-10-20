@@ -65,7 +65,7 @@ class Event extends Model
 
     public static function generateUniqueEventId()
     {
-        $filePath = storage_path('app/last_event_id.txt');
+        $filePath = base_path('tmp/last_event_id.txt');
 
         if (file_exists($filePath)) {
             $lastUniqueId = file_get_contents($filePath);
@@ -88,7 +88,7 @@ class Event extends Model
         parent::boot();
 
         static::creating(function ($model) {
-            $filePath = storage_path('app/last_event_id.txt');
+            $filePath = base_path('tmp/last_event_id.txt');
 
             if (file_exists($filePath)) {
                 $lastUniqueId = file_get_contents($filePath);
