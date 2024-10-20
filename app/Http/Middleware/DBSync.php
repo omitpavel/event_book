@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use App\Models\Event;
 
-class CheckDatabaseConnectionAndSync
+class DBSync
 {
     public function handle($request, Closure $next)
     {
