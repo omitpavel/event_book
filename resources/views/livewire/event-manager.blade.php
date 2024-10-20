@@ -70,7 +70,7 @@
                             <input type="file" name="csv_file" id="csv_file" class="form-control" accept=".csv" required>
                             @error('csv_file') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
-                        <a href="#" class="text-primary">Download a sample CSV</a><br>
+                        <a href="{{ url('Dummy.csv') }}" class="text-primary">Download a sample CSV</a><br>
                         <span class="text-danger">Note: Column recipients supports comma-separated values; write 1 for the is_completed column.</span>
                     </div>
                     <div class="modal-footer">
