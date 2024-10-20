@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Reminder App</title>
-    <link rel="stylesheet" href="{{ secure_asset('asset/Generic/bootstrap/css/bootstrap.min.css') }}" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css" crossorigin="anonymous">
 
     @livewireStyles
 </head>
@@ -14,8 +14,9 @@
     </div>
     @livewireScripts
 </body>
-<script src="{{ secure_asset('asset/Generic/bootstrap/js/bootstrap.bundle.min.js') }}" crossorigin="anonymous"></script>
-<script src="{{ secure_asset('asset/Generic/js/jquery-3.6.0.min.js') }}"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+
 
 
 
