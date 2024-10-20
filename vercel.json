@@ -16,7 +16,7 @@
       "APP_ENV": "production",
       "APP_KEY": "base64:y4GcuOslzIKyaSr3bHWBcyJqynhMwLLJxxSG5sviUf0=",
       "APP_DEBUG": "false",
-      "APP_URL": "https://your-vercel-domain.vercel.app",
+      "APP_URL": "https://event-book-five.vercel.app",
 
       "MAIL_MAILER": "smtp",
       "MAIL_HOST": "mail.wedvisa.com",
