@@ -107,7 +107,7 @@ class EventLivewireManager extends Component
                     'recipients' => $this->recipients,
                     'is_completed' => $events[$eventIndex]['is_completed'],
                 ];
-                file_put_contents(storage_path('app/local_events.json'), json_encode($events));
+                file_put_contents(base_path('tmp/local_events.json'), json_encode($events));
             }
         }
 
@@ -129,7 +129,7 @@ class EventLivewireManager extends Component
                 return $event['event_id'] == $id;
             })->toArray();
 
-            file_put_contents(storage_path('app/local_events.json'), json_encode($updatedEvents));
+            file_put_contents(base_path('tmp/local_events.json'), json_encode($updatedEvents));
 
         }
         session()->flash('success', 'Event deleted successfully.');
@@ -169,7 +169,7 @@ class EventLivewireManager extends Component
                 $event['is_completed'] = true;
                 $events = collect($events)->reject(fn($e) => $e['event_id'] === $eventId)->values()->all();
                 $events[] = $event;
-                file_put_contents(storage_path('app/local_events.json'), json_encode($events));
+                file_put_contents(base_path('tmp/local_events.json'), json_encode($events));
                 session()->flash('success', 'Event marked as completed successfully.');
             } else {
                 session()->flash('error', 'Event not found.');
@@ -203,17 +203,5 @@ class EventLivewireManager extends Component
 
 
 
-    public function importCsv()
-    {
-        $this->validate([
-            'csv_file' => 'required|mimes:csv,txt',
-        ]);
-        dd($this->csv_file);
-        Excel::import(new EventImport, $this->csv_file);
 
-        session()->flash('success', 'CSV file imported successfully!');
-
-
-        $this->dispatch('close-modal', 'importCsvModal');
-    }
 }

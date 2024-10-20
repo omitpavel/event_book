@@ -51,7 +51,7 @@ class Event extends Model
     public static function getLocalStorageEvents()
     {
 
-        return file_get_contents(storage_path('app/local_events.json'));
+        return file_get_contents(base_path('tmp/local_events.json'));
     }
 
     public static function saveToLocalStorage(array $data)
@@ -60,7 +60,7 @@ class Event extends Model
 
         $events[] = $data;
 
-        file_put_contents(storage_path('app/local_events.json'), json_encode($events));
+        file_put_contents(base_path('tmp/local_events.json'), json_encode($events));
     }
 
     public static function generateUniqueEventId()

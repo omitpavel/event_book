@@ -18,19 +18,13 @@ class DBSync
 
             return $next($request);
         } catch (\Exception $e) {
-            Log::warning('Database connection failed: ' . $e->getMessage());
-
-            return response()->json([
-                'status' => 'offline',
-                'message' => 'Database connection failed, using local storage',
-                'events' => $this->getLocalEvents()
-            ]);
+            return $next($request);
         }
     }
 
     protected function getLocalEvents()
     {
-        $events = file_get_contents(storage_path('app/local_events.json'));
+        $events = file_get_contents(base_path('tmp/local_events.json'));
         return json_decode($events, true) ?? [];
     }
 
@@ -39,7 +33,7 @@ class DBSync
         $events = $this->getLocalEvents();
         if(count($events) > 0){
             Event::upsert($events, 'event_id');
-            file_put_contents(storage_path('app/local_events.json'), json_encode(array()));
+            file_put_contents(base_path('tmp/local_events.json'), json_encode(array()));
         }
     }
 
